@@ -3,26 +3,37 @@
 #include "Brake.hpp"
 #include "Engine.hpp"
 #include "Steering.hpp"
-#include "Types.hpp"
 
 class BrakeCONTINENTAL : public IBrake {
 public:
-	BrakeCONTINENTAL() : IBrake(Manufacturer_e::MFR_CONTINENTAL)
+	BrakeCONTINENTAL(VehicleType_e Type) : IBrake(Type, Manufacturer_e::MFR_CONTINENTAL)
 	{
+	}
+
+	void Display() override {
+		printf("Brake System : Continental\n");
 	}
 };
 
 class EngineCONTINENTAL : public IEngine {
 public:
-	EngineCONTINENTAL() : IEngine(Manufacturer_e::MFR_CONTINENTAL)
+	EngineCONTINENTAL(VehicleType_e Type) : IEngine(Type, Manufacturer_e::MFR_CONTINENTAL)
 	{
+	}
+
+	void Display() override {
+		printf("Engine : Continental\n");
 	}
 };
 
 class SteeringCONTINENTAL : public ISteering {
 public:
-	SteeringCONTINENTAL() : ISteering(Manufacturer_e::MFR_CONTINENTAL)
+	SteeringCONTINENTAL(VehicleType_e Type) : ISteering(Type, Manufacturer_e::MFR_CONTINENTAL)
 	{
+	}
+
+	void Display() override {
+		printf("SteeringSystem : Continental\n");
 	}
 };
 
@@ -43,16 +54,16 @@ public:
 		if (Type == VehicleType_e::SEDAN) {
 			return nullptr;
 		}
-		return new BrakeCONTINENTAL;
+		return new BrakeCONTINENTAL(Type);
 	}
 
 	IEngine* BuildEngine(VehicleType_e Type)
 	{
-		return new EngineCONTINENTAL;
+		return new EngineCONTINENTAL(Type);
 	}
 
 	ISteering* BuildSteering(VehicleType_e Type)
 	{
-		return new SteeringCONTINENTAL;
+		return new SteeringCONTINENTAL(Type);
 	}
 };

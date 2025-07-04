@@ -33,6 +33,18 @@
     <ClCompile Include="UnitTest_Manufacturer.cpp">
       <Filter>테스트 파일</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTest_Stage.cpp">
+      <Filter>테스트 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTest_Builder.cpp">
+      <Filter>테스트 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -45,9 +57,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Steering.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Types.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="WIA.hpp">
@@ -69,6 +78,9 @@
       <Filter>Manufacturer</Filter>
     </ClInclude>
     <ClInclude Include="Stage.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Builder.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

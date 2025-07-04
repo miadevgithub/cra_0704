@@ -1,4 +1,4 @@
-﻿#ifndef _DEBUG
+﻿#ifdef _DEBUG
 
 #include "gmock/gmock.h"
 
@@ -22,25 +22,24 @@ int main()
     STAGE[STAGE_STEERING] = new StageSteering;
     STAGE[STAGE_RUN] = new StageRun;
 
-    Stage* current = STAGE[STAGE_CARTYPE];
-    StageResult_e ret = RET_SUCCESS;
+    int index = STAGE_CARTYPE;
+    ManufacturerInfo_t info{ SEDAN, MFR_MAX, MFR_MAX, MFR_MAX };
     while (1) {
-        current->entry();
-        ret = current->execute();
-        switch (ret) {
-        case RET_SUCCESS:
-            current->exit();
-            break;
+        STAGE[index]->entry(info);
+        StageResult_e ret = STAGE[index]->execute();
 
-        case RET_ERROR:
+        if (ret == RET_EXIT) {
             break;
+        }
 
-        case RET_INIT:
-            current = STAGE[STAGE_CARTYPE];
-            break;
+        if (ret == RET_INIT) {
+            index = STAGE_CARTYPE;
+            continue;
+        }
 
-        case RET_EXIT:
-            break;
+        if (ret == RET_SUCCESS) {
+            STAGE[index]->exit();
+            index = (index == STAGE_RUN) ? index : index + 1;
         }
     }
 }

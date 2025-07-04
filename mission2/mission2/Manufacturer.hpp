@@ -1,4 +1,13 @@
 #pragma once
+#include <iostream>
+
+enum VehicleType_e
+{
+	SEDAN = 1,
+	SUV,
+	TRUCK,
+};
+
 enum Manufacturer_e
 {
 	MFR_GM,
@@ -8,6 +17,8 @@ enum Manufacturer_e
 	MFR_CONTINENTAL,
 	MFR_BOSCH,
 	MFR_MOBIS,
+	MFR_BROKEN,
+	MFR_MAX,
 };
 
 class IManufacturer

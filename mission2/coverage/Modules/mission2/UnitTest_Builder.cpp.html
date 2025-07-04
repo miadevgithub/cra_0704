@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>UnitTest_Builder.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include &lt;gmock/gmock.h&gt;
+#include "Builder.hpp"
+
+class BUILDER_FIXTURE : public ::testing::Test
+{
+public:
+};
+
+struct TestInput
+{
+	ManufacturerInfo_t info;
+	bool result;
+};
+
+<span style = "background-color:#dfd">TEST_F(BUILDER_FIXTURE, Sedan)
+{</span>
+	TestInput input[] = {
+		// {TYPE, ENGINE, BRAKE, STEERING},
+<span style = "background-color:#dfd">		{{SEDAN, MFR_GM, MFR_MANDO, MFR_BOSCH}, true },
+		{{SEDAN, MFR_GM, MFR_MANDO, MFR_MOBIS}, true },
+		{{SEDAN, MFR_GM, MFR_CONTINENTAL, MFR_BOSCH}, false},
+		{{SEDAN, MFR_GM, MFR_CONTINENTAL, MFR_MOBIS}, false},
+		{{SEDAN, MFR_GM, MFR_BOSCH, MFR_BOSCH}, true},
+		{{SEDAN, MFR_GM, MFR_BOSCH, MFR_MOBIS}, false},</span>
+
+<span style = "background-color:#dfd">		{{SEDAN, MFR_TOYOTA, MFR_MANDO, MFR_BOSCH}, true},
+		{{SEDAN, MFR_TOYOTA, MFR_MANDO, MFR_MOBIS}, true},
+		{{SEDAN, MFR_TOYOTA, MFR_CONTINENTAL, MFR_BOSCH}, false},
+		{{SEDAN, MFR_TOYOTA, MFR_CONTINENTAL, MFR_MOBIS}, false},
+		{{SEDAN, MFR_TOYOTA, MFR_BOSCH, MFR_BOSCH}, true},
+		{{SEDAN, MFR_TOYOTA, MFR_BOSCH, MFR_MOBIS}, false},</span>
+
+<span style = "background-color:#dfd">		{{SEDAN, MFR_WIA, MFR_MANDO, MFR_BOSCH}, true},
+		{{SEDAN, MFR_WIA, MFR_MANDO, MFR_MOBIS}, true},
+		{{SEDAN, MFR_WIA, MFR_CONTINENTAL, MFR_BOSCH}, false},
+		{{SEDAN, MFR_WIA, MFR_CONTINENTAL, MFR_MOBIS}, false},
+		{{SEDAN, MFR_WIA, MFR_BOSCH, MFR_BOSCH}, true},
+		{{SEDAN, MFR_WIA, MFR_BOSCH, MFR_MOBIS}, false},</span>
+	};
+
+<span style = "background-color:#dfd">	for (int i = 0; i &lt; (sizeof(input) / sizeof(TestInput)); ++i) {
+		Car car(input[i].info);
+		bool result = car.TestBuild(input[i].info);
+		EXPECT_EQ(result, input[i].result);
+	}
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(BUILDER_FIXTURE, Suv)
+{</span>
+	TestInput input[] = {
+		// {TYPE, ENGINE, BRAKE, STEERING},
+<span style = "background-color:#dfd">		{{SUV, MFR_GM, MFR_MANDO, MFR_BOSCH}, true },
+		{{SUV, MFR_GM, MFR_MANDO, MFR_MOBIS}, true },
+		{{SUV, MFR_GM, MFR_CONTINENTAL, MFR_BOSCH}, true},
+		{{SUV, MFR_GM, MFR_CONTINENTAL, MFR_MOBIS}, true},
+		{{SUV, MFR_GM, MFR_BOSCH, MFR_BOSCH}, true},
+		{{SUV, MFR_GM, MFR_BOSCH, MFR_MOBIS}, false},</span>
+
+<span style = "background-color:#dfd">		{{SUV, MFR_TOYOTA, MFR_MANDO, MFR_BOSCH}, false},
+		{{SUV, MFR_TOYOTA, MFR_MANDO, MFR_MOBIS}, false},
+		{{SUV, MFR_TOYOTA, MFR_CONTINENTAL, MFR_BOSCH}, false},
+		{{SUV, MFR_TOYOTA, MFR_CONTINENTAL, MFR_MOBIS}, false},
+		{{SUV, MFR_TOYOTA, MFR_BOSCH, MFR_BOSCH}, false},
+		{{SUV, MFR_TOYOTA, MFR_BOSCH, MFR_MOBIS}, false},</span>
+
+<span style = "background-color:#dfd">		{{SUV, MFR_WIA, MFR_MANDO, MFR_BOSCH}, true},
+		{{SUV, MFR_WIA, MFR_MANDO, MFR_MOBIS}, true},
+		{{SUV, MFR_WIA, MFR_CONTINENTAL, MFR_BOSCH}, true},
+		{{SUV, MFR_WIA, MFR_CONTINENTAL, MFR_MOBIS}, true},
+		{{SUV, MFR_WIA, MFR_BOSCH, MFR_BOSCH}, true},
+		{{SUV, MFR_WIA, MFR_BOSCH, MFR_MOBIS}, false},</span>
+	};
+
+<span style = "background-color:#dfd">	for (int i = 0; i &lt; (sizeof(input) / sizeof(TestInput)); ++i) {
+		Car car(input[i].info);
+		bool result = car.TestBuild(input[i].info);
+		EXPECT_EQ(result, input[i].result);
+	}
+}</span>
+
+<span style = "background-color:#dfd">TEST_F(BUILDER_FIXTURE, Truck)
+{</span>
+	TestInput input[] = {
+		// {TYPE, ENGINE, BRAKE, STEERING},
+<span style = "background-color:#dfd">		{{TRUCK, MFR_GM, MFR_MANDO, MFR_BOSCH}, false },
+		{{TRUCK, MFR_GM, MFR_MANDO, MFR_MOBIS}, false },
+		{{TRUCK, MFR_GM, MFR_CONTINENTAL, MFR_BOSCH}, true},
+		{{TRUCK, MFR_GM, MFR_CONTINENTAL, MFR_MOBIS}, true},
+		{{TRUCK, MFR_GM, MFR_BOSCH, MFR_BOSCH}, true},
+		{{TRUCK, MFR_GM, MFR_BOSCH, MFR_MOBIS}, false},</span>
+
+<span style = "background-color:#dfd">		{{TRUCK, MFR_TOYOTA, MFR_MANDO, MFR_BOSCH}, false},
+		{{TRUCK, MFR_TOYOTA, MFR_MANDO, MFR_MOBIS}, false},
+		{{TRUCK, MFR_TOYOTA, MFR_CONTINENTAL, MFR_BOSCH}, true},
+		{{TRUCK, MFR_TOYOTA, MFR_CONTINENTAL, MFR_MOBIS}, true},
+		{{TRUCK, MFR_TOYOTA, MFR_BOSCH, MFR_BOSCH}, true},
+		{{TRUCK, MFR_TOYOTA, MFR_BOSCH, MFR_MOBIS}, false},</span>
+
+<span style = "background-color:#dfd">		{{TRUCK, MFR_WIA, MFR_MANDO, MFR_BOSCH}, false},
+		{{TRUCK, MFR_WIA, MFR_MANDO, MFR_MOBIS}, false},
+		{{TRUCK, MFR_WIA, MFR_CONTINENTAL, MFR_BOSCH}, false},
+		{{TRUCK, MFR_WIA, MFR_CONTINENTAL, MFR_MOBIS}, false},
+		{{TRUCK, MFR_WIA, MFR_BOSCH, MFR_BOSCH}, false},
+		{{TRUCK, MFR_WIA, MFR_BOSCH, MFR_MOBIS}, false},</span>
+	};
+
+<span style = "background-color:#dfd">	for (int i = 0; i &lt; (sizeof(input) / sizeof(TestInput)); ++i) {
+		Car car(input[i].info);
+		bool result = car.TestBuild(input[i].info);
+		EXPECT_EQ(result, input[i].result) &lt;&lt; i;
+	}
+}</span></pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

@@ -3,26 +3,37 @@
 #include "Brake.hpp"
 #include "Engine.hpp"
 #include "Steering.hpp"
-#include "Types.hpp"
 
 class BrakeWIA : public IBrake {
 public:
-	BrakeWIA() : IBrake(Manufacturer_e::MFR_WIA)
+	BrakeWIA(VehicleType_e Type) : IBrake(Type, Manufacturer_e::MFR_WIA)
 	{
+	}
+
+	void Display() override {
+		printf("Brake System : WIA\n");
 	}
 };
 
 class EngineWIA : public IEngine {
 public:
-	EngineWIA() : IEngine(Manufacturer_e::MFR_WIA)
+	EngineWIA(VehicleType_e Type) : IEngine(Type, Manufacturer_e::MFR_WIA)
 	{
+	}
+
+	void Display() override {
+		printf("Engine : WIA\n");
 	}
 };
 
 class SteeringWIA : public ISteering {
 public:
-	SteeringWIA() : ISteering(Manufacturer_e::MFR_WIA)
+	SteeringWIA(VehicleType_e Type) : ISteering(Type, Manufacturer_e::MFR_WIA)
 	{
+	}
+
+	void Display() override {
+		printf("SteeringSystem : WIA\n");
 	}
 };
 
@@ -40,7 +51,7 @@ public:
 
 	IBrake* BuildBrake(VehicleType_e Type)
 	{
-		return new BrakeWIA;
+		return new BrakeWIA(Type);
 	}
 
 	IEngine* BuildEngine(VehicleType_e Type)
@@ -48,11 +59,11 @@ public:
 		if (Type == VehicleType_e::TRUCK) {
 			return nullptr;
 		}
-		return new EngineWIA;
+		return new EngineWIA(Type);
 	}
 
 	ISteering* BuildSteering(VehicleType_e Type)
 	{
-		return new SteeringWIA;
+		return new SteeringWIA(Type);
 	}
 };

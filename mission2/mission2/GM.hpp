@@ -3,26 +3,37 @@
 #include "Brake.hpp"
 #include "Engine.hpp"
 #include "Steering.hpp"
-#include "Types.hpp"
 
 class BrakeGM : public IBrake {
 public:
-	BrakeGM() : IBrake(Manufacturer_e::MFR_GM)
+	BrakeGM(VehicleType_e Type) : IBrake(Type, Manufacturer_e::MFR_GM)
 	{
+	}
+
+	void Display() override {
+		printf("Brake System : GM\n");
 	}
 };
 
 class EngineGM : public IEngine {
 public:
-	EngineGM() : IEngine(Manufacturer_e::MFR_GM)
+	EngineGM(VehicleType_e Type) : IEngine(Type, Manufacturer_e::MFR_GM)
 	{
+	}
+
+	void Display() override {
+		printf("Engine : GM\n");
 	}
 };
 
 class SteeringGM : public ISteering {
 public:
-	SteeringGM() : ISteering(Manufacturer_e::MFR_GM)
+	SteeringGM(VehicleType_e Type) : ISteering(Type, Manufacturer_e::MFR_GM)
 	{
+	}
+
+	void Display() override {
+		printf("SteeringSystem : GM\n");
 	}
 };
 
@@ -40,16 +51,16 @@ public:
 
 	IBrake* BuildBrake(VehicleType_e Type)
 	{
-		return new BrakeGM;
+		return new BrakeGM(Type);
 	}
 
 	IEngine* BuildEngine(VehicleType_e Type)
 	{
-		return new EngineGM;
+		return new EngineGM(Type);
 	}
 
 	ISteering* BuildSteering(VehicleType_e Type)
 	{
-		return new SteeringGM;
+		return new SteeringGM(Type);
 	}
 };

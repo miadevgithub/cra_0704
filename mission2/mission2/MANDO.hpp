@@ -3,26 +3,37 @@
 #include "Brake.hpp"
 #include "Engine.hpp"
 #include "Steering.hpp"
-#include "Types.hpp"
 
 class BrakeMANDO : public IBrake {
 public:
-	BrakeMANDO() : IBrake(Manufacturer_e::MFR_MANDO)
+	BrakeMANDO(VehicleType_e Type) : IBrake(Type, Manufacturer_e::MFR_MANDO)
 	{
+	}
+
+	void Display() override {
+		printf("Brake System : Mando\n");
 	}
 };
 
 class EngineMANDO : public IEngine {
 public:
-	EngineMANDO() : IEngine(Manufacturer_e::MFR_MANDO)
+	EngineMANDO(VehicleType_e Type) : IEngine(Type, Manufacturer_e::MFR_MANDO)
 	{
+	}
+
+	void Display() override {
+		printf("Engine : Mando\n");
 	}
 };
 
 class SteeringMANDO : public ISteering {
 public:
-	SteeringMANDO() : ISteering(Manufacturer_e::MFR_MANDO)
+	SteeringMANDO(VehicleType_e Type) : ISteering(Type, Manufacturer_e::MFR_MANDO)
 	{
+	}
+
+	void Display() override {
+		printf("SteeringSystem : Mando\n");
 	}
 };
 
@@ -43,16 +54,16 @@ public:
 		if (Type == VehicleType_e::TRUCK) {
 			return nullptr;
 		}
-		return new BrakeMANDO;
+		return new BrakeMANDO(Type);
 	}
 
 	IEngine* BuildEngine(VehicleType_e Type)
 	{
-		return new EngineMANDO;
+		return new EngineMANDO(Type);
 	}
 
 	ISteering* BuildSteering(VehicleType_e Type)
 	{
-		return new SteeringMANDO;
+		return new SteeringMANDO(Type);
 	}
 };

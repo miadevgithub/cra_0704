@@ -3,26 +3,37 @@
 #include "Brake.hpp"
 #include "Engine.hpp"
 #include "Steering.hpp"
-#include "Types.hpp"
 
 class BrakeMOBIS : public IBrake {
 public:
-	BrakeMOBIS() : IBrake(Manufacturer_e::MFR_MOBIS)
+	BrakeMOBIS(VehicleType_e Type) : IBrake(Type, Manufacturer_e::MFR_MOBIS)
 	{
+	}
+
+	void Display() override {
+		printf("Brake System : Mobis\n");
 	}
 };
 
 class EngineMOBIS : public IEngine {
 public:
-	EngineMOBIS() : IEngine(Manufacturer_e::MFR_MOBIS)
+	EngineMOBIS(VehicleType_e Type) : IEngine(Type, Manufacturer_e::MFR_MOBIS)
 	{
+	}
+
+	void Display() override {
+		printf("Engine : Mobis\n");
 	}
 };
 
 class SteeringMOBIS : public ISteering {
 public:
-	SteeringMOBIS() : ISteering(Manufacturer_e::MFR_MOBIS)
+	SteeringMOBIS(VehicleType_e Type) : ISteering(Type, Manufacturer_e::MFR_MOBIS)
 	{
+	}
+
+	void Display() override {
+		printf("SteeringSystem : Mobis\n");
 	}
 };
 
@@ -40,16 +51,16 @@ public:
 
 	IBrake* BuildBrake(VehicleType_e Type)
 	{
-		return new BrakeMOBIS;
+		return new BrakeMOBIS(Type);
 	}
 
 	IEngine* BuildEngine(VehicleType_e Type)
 	{
-		return new EngineMOBIS;
+		return new EngineMOBIS(Type);
 	}
 
 	ISteering* BuildSteering(VehicleType_e Type)
 	{
-		return new SteeringMOBIS;
+		return new SteeringMOBIS(Type);
 	}
 };

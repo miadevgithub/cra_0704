@@ -3,26 +3,37 @@
 #include "Brake.hpp"
 #include "Engine.hpp"
 #include "Steering.hpp"
-#include "Types.hpp"
 
 class BrakeTOYOTA : public IBrake {
 public:
-	BrakeTOYOTA() : IBrake(Manufacturer_e::MFR_TOYOTA)
+	BrakeTOYOTA(VehicleType_e Type) : IBrake(Type, Manufacturer_e::MFR_TOYOTA)
 	{
+	}
+
+	void Display() override {
+		printf("Brake System : TOYOTA\n");
 	}
 };
 
 class EngineTOYOTA : public IEngine {
 public:
-	EngineTOYOTA() : IEngine(Manufacturer_e::MFR_TOYOTA)
+	EngineTOYOTA(VehicleType_e Type) : IEngine(Type, Manufacturer_e::MFR_TOYOTA)
 	{
+	}
+
+	void Display() override {
+		printf("Engine : TOYOTA\n");
 	}
 };
 
 class SteeringTOYOTA : public ISteering {
 public:
-	SteeringTOYOTA() : ISteering(Manufacturer_e::MFR_TOYOTA)
+	SteeringTOYOTA(VehicleType_e Type) : ISteering(Type, Manufacturer_e::MFR_TOYOTA)
 	{
+	}
+
+	void Display() override {
+		printf("SteeringSystem : TOYOTA\n");
 	}
 };
 
@@ -40,7 +51,7 @@ public:
 
 	IBrake* BuildBrake(VehicleType_e Type)
 	{
-		return new BrakeTOYOTA;
+		return new BrakeTOYOTA(Type);
 	}
 
 	IEngine* BuildEngine(VehicleType_e Type)
@@ -48,11 +59,11 @@ public:
 		if (Type == VehicleType_e::SUV) {
 			return nullptr;
 		}
-		return new EngineTOYOTA;
+		return new EngineTOYOTA(Type);
 	}
 
 	ISteering* BuildSteering(VehicleType_e Type)
 	{
-		return new SteeringTOYOTA;
+		return new SteeringTOYOTA(Type);
 	}
 };
