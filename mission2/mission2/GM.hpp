@@ -7,21 +7,21 @@
 
 class BrakeGM : public IBrake {
 public:
-	BrakeGM() : IBrake(Manufacturer_e::GM)
+	BrakeGM() : IBrake(Manufacturer_e::MFR_GM)
 	{
 	}
 };
 
 class EngineGM : public IEngine {
 public:
-	EngineGM() : IEngine(Manufacturer_e::GM)
+	EngineGM() : IEngine(Manufacturer_e::MFR_GM)
 	{
 	}
 };
 
 class SteeringGM : public ISteering {
 public:
-	SteeringGM() : ISteering(Manufacturer_e::GM)
+	SteeringGM() : ISteering(Manufacturer_e::MFR_GM)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	GM() : IManufacturer(Manufacturer_e::GM)
+	GM() : IManufacturer(Manufacturer_e::MFR_GM)
 	{
 	}
 

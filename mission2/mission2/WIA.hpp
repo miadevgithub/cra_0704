@@ -7,21 +7,21 @@
 
 class BrakeWIA : public IBrake {
 public:
-	BrakeWIA() : IBrake(Manufacturer_e::WIA)
+	BrakeWIA() : IBrake(Manufacturer_e::MFR_WIA)
 	{
 	}
 };
 
 class EngineWIA : public IEngine {
 public:
-	EngineWIA() : IEngine(Manufacturer_e::WIA)
+	EngineWIA() : IEngine(Manufacturer_e::MFR_WIA)
 	{
 	}
 };
 
 class SteeringWIA : public ISteering {
 public:
-	SteeringWIA() : ISteering(Manufacturer_e::WIA)
+	SteeringWIA() : ISteering(Manufacturer_e::MFR_WIA)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	WIA() : IManufacturer(Manufacturer_e::WIA)
+	WIA() : IManufacturer(Manufacturer_e::MFR_WIA)
 	{
 	}
 

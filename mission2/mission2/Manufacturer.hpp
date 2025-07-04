@@ -1,13 +1,13 @@
 #pragma once
 enum Manufacturer_e
 {
-	GM,
-	TOYOTA,
-	WIA,
-	MANDO,
-	CONTINENTAL,
-	BOSCH,
-	MOBIS,
+	MFR_GM,
+	MFR_TOYOTA,
+	MFR_WIA,
+	MFR_MANDO,
+	MFR_CONTINENTAL,
+	MFR_BOSCH,
+	MFR_MOBIS,
 };
 
 class IManufacturer

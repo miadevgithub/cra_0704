@@ -7,21 +7,21 @@
 
 class BrakeTOYOTA : public IBrake {
 public:
-	BrakeTOYOTA() : IBrake(Manufacturer_e::TOYOTA)
+	BrakeTOYOTA() : IBrake(Manufacturer_e::MFR_TOYOTA)
 	{
 	}
 };
 
 class EngineTOYOTA : public IEngine {
 public:
-	EngineTOYOTA() : IEngine(Manufacturer_e::TOYOTA)
+	EngineTOYOTA() : IEngine(Manufacturer_e::MFR_TOYOTA)
 	{
 	}
 };
 
 class SteeringTOYOTA : public ISteering {
 public:
-	SteeringTOYOTA() : ISteering(Manufacturer_e::TOYOTA)
+	SteeringTOYOTA() : ISteering(Manufacturer_e::MFR_TOYOTA)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	TOYOTA() : IManufacturer(Manufacturer_e::TOYOTA)
+	TOYOTA() : IManufacturer(Manufacturer_e::MFR_TOYOTA)
 	{
 	}
 

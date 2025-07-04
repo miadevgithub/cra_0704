@@ -7,21 +7,21 @@
 
 class BrakeCONTINENTAL : public IBrake {
 public:
-	BrakeCONTINENTAL() : IBrake(Manufacturer_e::CONTINENTAL)
+	BrakeCONTINENTAL() : IBrake(Manufacturer_e::MFR_CONTINENTAL)
 	{
 	}
 };
 
 class EngineCONTINENTAL : public IEngine {
 public:
-	EngineCONTINENTAL() : IEngine(Manufacturer_e::CONTINENTAL)
+	EngineCONTINENTAL() : IEngine(Manufacturer_e::MFR_CONTINENTAL)
 	{
 	}
 };
 
 class SteeringCONTINENTAL : public ISteering {
 public:
-	SteeringCONTINENTAL() : ISteering(Manufacturer_e::CONTINENTAL)
+	SteeringCONTINENTAL() : ISteering(Manufacturer_e::MFR_CONTINENTAL)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	CONTINENTAL() : IManufacturer(Manufacturer_e::CONTINENTAL)
+	CONTINENTAL() : IManufacturer(Manufacturer_e::MFR_CONTINENTAL)
 	{
 	}
 

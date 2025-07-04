@@ -7,21 +7,21 @@
 
 class BrakeBOSCH : public IBrake {
 public:
-	BrakeBOSCH() : IBrake(Manufacturer_e::BOSCH)
+	BrakeBOSCH() : IBrake(Manufacturer_e::MFR_BOSCH)
 	{
 	}
 };
 
 class EngineBOSCH : public IEngine {
 public:
-	EngineBOSCH() : IEngine(Manufacturer_e::BOSCH)
+	EngineBOSCH() : IEngine(Manufacturer_e::MFR_BOSCH)
 	{
 	}
 };
 
 class SteeringBOSCH : public ISteering {
 public:
-	SteeringBOSCH() : ISteering(Manufacturer_e::BOSCH)
+	SteeringBOSCH() : ISteering(Manufacturer_e::MFR_BOSCH)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	BOSCH() : IManufacturer(Manufacturer_e::BOSCH)
+	BOSCH() : IManufacturer(Manufacturer_e::MFR_BOSCH)
 	{
 	}
 

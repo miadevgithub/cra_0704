@@ -7,21 +7,21 @@
 
 class BrakeMANDO : public IBrake {
 public:
-	BrakeMANDO() : IBrake(Manufacturer_e::MANDO)
+	BrakeMANDO() : IBrake(Manufacturer_e::MFR_MANDO)
 	{
 	}
 };
 
 class EngineMANDO : public IEngine {
 public:
-	EngineMANDO() : IEngine(Manufacturer_e::MANDO)
+	EngineMANDO() : IEngine(Manufacturer_e::MFR_MANDO)
 	{
 	}
 };
 
 class SteeringMANDO : public ISteering {
 public:
-	SteeringMANDO() : ISteering(Manufacturer_e::MANDO)
+	SteeringMANDO() : ISteering(Manufacturer_e::MFR_MANDO)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	MANDO() : IManufacturer(Manufacturer_e::MANDO)
+	MANDO() : IManufacturer(Manufacturer_e::MFR_MANDO)
 	{
 	}
 

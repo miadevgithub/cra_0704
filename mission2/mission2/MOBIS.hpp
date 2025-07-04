@@ -7,21 +7,21 @@
 
 class BrakeMOBIS : public IBrake {
 public:
-	BrakeMOBIS() : IBrake(Manufacturer_e::MOBIS)
+	BrakeMOBIS() : IBrake(Manufacturer_e::MFR_MOBIS)
 	{
 	}
 };
 
 class EngineMOBIS : public IEngine {
 public:
-	EngineMOBIS() : IEngine(Manufacturer_e::MOBIS)
+	EngineMOBIS() : IEngine(Manufacturer_e::MFR_MOBIS)
 	{
 	}
 };
 
 class SteeringMOBIS : public ISteering {
 public:
-	SteeringMOBIS() : ISteering(Manufacturer_e::MOBIS)
+	SteeringMOBIS() : ISteering(Manufacturer_e::MFR_MOBIS)
 	{
 	}
 };
@@ -34,7 +34,7 @@ public:
 		return instance;
 	}
 
-	MOBIS() : IManufacturer(Manufacturer_e::MOBIS)
+	MOBIS() : IManufacturer(Manufacturer_e::MFR_MOBIS)
 	{
 	}
 
