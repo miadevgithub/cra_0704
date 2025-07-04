@@ -1,4 +1,4 @@
-﻿#ifdef _DEBUG
+﻿#ifndef _DEBUG
 
 #include "gmock/gmock.h"
 
