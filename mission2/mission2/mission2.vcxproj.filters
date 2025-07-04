@@ -13,13 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Manufacturer">
+      <UniqueIdentifier>{c7439fea-bed6-471d-bead-712f56869568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="테스트 파일">
+      <UniqueIdentifier>{ccc2353e-7f5d-4401-9b36-9a844eec5a8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="assemble.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CONTINENTAL.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClCompile>
+    <ClCompile Include="BOSCH.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Brake.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Steering.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="WIA.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClInclude>
+    <ClInclude Include="TOYOTA.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClInclude>
+    <ClInclude Include="MOBIS.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClInclude>
+    <ClInclude Include="Manufacturer.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClInclude>
+    <ClInclude Include="MANDO.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClInclude>
+    <ClInclude Include="GM.hpp">
+      <Filter>Manufacturer</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

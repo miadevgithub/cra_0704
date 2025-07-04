@@ -124,9 +124,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="assemble.cpp" />
+    <ClCompile Include="BOSCH.hpp" />
+    <ClCompile Include="CONTINENTAL.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Brake.hpp" />
+    <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="GM.hpp" />
+    <ClInclude Include="MANDO.hpp" />
+    <ClInclude Include="Manufacturer.hpp" />
+    <ClInclude Include="Menu.hpp" />
+    <ClInclude Include="MOBIS.hpp" />
+    <ClInclude Include="Steering.hpp" />
+    <ClInclude Include="TOYOTA.hpp" />
+    <ClInclude Include="Types.hpp" />
+    <ClInclude Include="WIA.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
